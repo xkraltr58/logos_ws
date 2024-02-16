@@ -1,0 +1,10 @@
+<library path="midi_hardware">
+  
+  <class name="midi_hardware/MidiSystemHardware"
+         type="midi_hardware::MidiSystemHardware"
+         base_class_type="hardware_interface::SystemInterface">
+    <description>
+      Logos Midi ROS 2 hardware interface.
+    </description>
+  </class>
+</library>

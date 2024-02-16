@@ -1,0 +1,30 @@
+smoother_server:
+  ros__parameters:
+    use_sim_time: True
+    smoother_plugins: ["SmoothPath"]
+
+    SmoothPath:
+      plugin: "nav2_constrained_smoother/ConstrainedSmoother"
+      reversing_enabled: True
+      path_downsampling_factor: 1
+      path_upsampling_factor: 1
+      keep_start_orientation: True
+      keep_goal_orientation: True
+      minimum_turning_radius: 0.4
+      w_curve: 30.0
+      w_dist: 0.0
+      w_smooth: 2000000
+      w_cost: 0.015
+      w_cost_cusp_multiplier: 3.0
+      cusp_zone_length: 2.5
+      cost_check_points: [0.0, 0.5, 1.0, 0.0, -0.5, 1.0]
+    
+    optimizer:
+      max_iterations: 100
+      debug_optimizer: false
+      linear_solver_type: “SPARSE_NORMAL_CHOLESKY”
+      gradient_tol: 1e-10
+      fn_tol: 1e-7
+      param_tol: 1e-15
+
+      

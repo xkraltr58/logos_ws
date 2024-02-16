@@ -1,0 +1,9 @@
+midi_hardware:
+ ros__parameters:
+  left_joint_name: "left_wheel_joint"
+  right_joint_name: "right_wheel_joint"
+  pulse_per_revolution: 28672
+  wheel_radius: 0.1  
+  gear_ratio: 7.0
+  max_rpm: 1000
+  min_rpm: 0

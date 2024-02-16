@@ -1,0 +1,90 @@
+<root main_tree_to_execute="MainTree" >
+
+    <!-- Main Behavior Tree -->
+    <BehaviorTree ID="MainTree">
+    
+        <!-- Navigate to Pose -->
+        <Fallback name="NavigateToPose">
+            <Sequence name="NavigateSequence">
+                <!-- Condition to check if goal is reached -->
+                <Condition name="GoalReached"/>
+                
+                <!-- Action to set goal pose -->
+                <Action name="SetGoalPose"/>
+                
+                <!-- Action to navigate to goal pose -->
+                <Action name="NavigateToGoal"/>
+            </Sequence>
+            
+            <!-- Recovery behavior in case of failure -->
+            <Fallback name="RecoveryFallback">
+                <!-- Action to handle obstacle avoidance -->
+                <Action name="AvoidObstacles"/>
+                
+                <!-- Action to replan path -->
+                <Action name="ReplanPath"/>
+                
+                <!-- Action to resume navigation -->
+                <Action name="ResumeNavigation"/>
+            </Fallback>
+        </Fallback>
+        
+        <!-- Path Following -->
+        <Fallback name="PathFollowing">
+            <!-- Condition to check if path is being followed -->
+            <Condition name="PathFollowingInProgress"/>
+            
+            <!-- Action to control trajectory tracking -->
+            <Action name="TrackTrajectory"/>
+            
+            <!-- Action to adjust velocity for smooth path following -->
+            <Action name="AdjustVelocity"/>
+        </Fallback>
+        
+        <!-- Goal Updating -->
+        <Fallback name="GoalUpdating">
+            <!-- Condition to check if goal needs updating -->
+            <Condition name="GoalUpdateNeeded"/>
+            
+            <!-- Action to update goal dynamically -->
+            <Action name="UpdateGoal"/>
+        </Fallback>
+        
+        <!-- Localization and Mapping -->
+        <Fallback name="LocalizationAndMapping">
+            <!-- Condition to check if localization is accurate -->
+            <Condition name="LocalizationAccurate"/>
+            
+            <!-- Action to perform localization update -->
+            <Action name="UpdateLocalization"/>
+            
+            <!-- Action to manage map updates -->
+            <Action name="ManageMapUpdates"/>
+        </Fallback>
+        
+        <!-- Behavior Prioritization -->
+        <Sequence name="BehaviorPrioritization">
+            <!-- Higher priority behaviors -->
+            <Fallback name="HighPriorityBehaviors">
+                <!-- Behavior for handling critical tasks -->
+                <Action name="HandleCriticalTasks"/>
+            </Fallback>
+            
+            <!-- Lower priority behaviors -->
+            <Fallback name="LowPriorityBehaviors">
+                <!-- Behavior for handling non-critical tasks -->
+                <Action name="HandleNonCriticalTasks"/>
+            </Fallback>
+        </Sequence>
+        
+        <!-- Task Sequencing -->
+        <Sequence name="TaskSequencing">
+            <!-- Sequence of tasks -->
+            <Action name="FirstTask"/>
+            <Action name="SecondTask"/>
+            <!-- Add more tasks as needed -->
+        </Sequence>
+        
+    </BehaviorTree>
+    
+</root>

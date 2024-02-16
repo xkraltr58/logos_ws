@@ -1,0 +1,37 @@
+global_costmap:
+  global_costmap:
+    ros__paramters:
+      always_send_full_costmap: false
+      foot_print_padding: 0.01
+      footprint: "[ [0.4, 0.25], [0.4, -0.25], [-0.4, -0.25], [-0.4, 0.25] ]"
+      global_frame: "map"
+      height: 5
+      width: 5
+      lethal_cost_trashold: 100
+      map_topic: "map"
+      observation_sources: 
+      origin_x: 0.0
+      origin_y: 0.0
+      publish_frequency: 1.0
+      resolution: 0.1
+      robot_base_frame: "base_link"
+      robot_radius: 0.1
+      rolling_window: false
+      track_unknown_space: false
+      transform_tolerance: 0.3
+      initial_transform_timeout: 60.0
+      trinary_costmap: True
+      unknown_cost_value: 255
+      update_frequency: 5.0
+      use_maximum: false
+      plugins: {“static_layer”, “obstacle_layer”, “inflation_layer”}
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+      filters:
+      
+
+      

@@ -1,0 +1,24 @@
+controller_server:
+  ros_parameters:
+    use_sim_time:
+    controller_frequency: 20.0
+    use_real_time_priority: fasle
+    action_server_result_timeout: 10.0
+    controller_plugins: ['FollowPath']
+    FollowPath:
+      plugin: "dwb_core::DWBLocalPlanner"
+    progress_checker_plugins: ["progress_checker"]
+    progress_checker:
+      plugin: "nav2_controller::SimpleProgressChecker"
+    goal_checker_plugins: 'goal_checker'
+      goal_checker:
+        plugin: "nav2_contoller::SimpleGoalChecker"
+    min_x_velocity_treshold: 0.0001
+    min_y_velocity_treshold: 0.0001
+    min_theta_velocity_treshold: 0.0001
+    failure_tolerance: 0.0
+    speed_limit_topic: "speed_limit"
+    odom_topic: "odom"
+    
+    
+

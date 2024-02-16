@@ -1,0 +1,59 @@
+controller_server:
+  ros__parameters:
+    use_sim_time: false
+    controller_frequency: 20.0
+    min_x_velocity_threshold: 0.0
+    min_y_velocity_threshold: 0.0
+    min_theta_velocity_threshold: 0.0
+    progress_checker_plugins: []
+    goal_checker_plugins: []
+    controller_plugins:
+      publish_evaluation: false
+      publish_global_plan: false
+      publish_transformed_plan: false
+      publish_local_plan: false
+      publish_trajectories: false
+      publish_cost_grid_pc: false
+      marker_lifetime: 0.0
+    progress_checker: {}
+    goal_checker: {}
+    FollowPath:
+      plugin: "dwb_plugins/FollowPath"
+      debug_trajectory_details: false
+      min_speed_xy: 0.1
+      max_speed_xy: 0.55
+      min_speed_theta: 0.1
+      min_vel_x: 0.0
+      min_vel_y: 0.0
+      max_vel_x: 1.0
+      max_vel_y: 0.0
+      max_vel_theta: 1.0
+      acc_lim_x: 1.0
+      acc_lim_y: 1.0
+      acc_lim_theta: 1.0
+      decel_lim_x: -1.0
+      decel_lim_y: -1.0
+      decel_lim_theta: -1.0
+      vx_samples: 3
+      vy_samples: 1
+      vtheta_samples: 20
+      sim_time: 2.0
+      linear_granularity: 0.01
+      angular_granularity: 0.01
+      transform_tolerance: 0.1
+      xy_goal_tolerance: 0.2
+      trans_stopped_velocity: 0.1
+      short_circuit_trajectory_evaluation: true
+      stateful: false
+      critics: {}
+      default_critic_namespaces: ["dwb_critics"]
+      prune_plan: true
+      shorten_transformed_plan: true
+      prune_distance: 2.0
+      forward_prune_distance: 2.0
+      trajectory_generator_name: "dwb_plugins::StandardTrajectoryGenerator"
+      goal_checker_name: "dwb_plugins::SimpleGoalChecker"
+      path_distance_bias: 32.0
+      goal_distance_bias: 24.0
+
+
